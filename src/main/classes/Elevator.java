@@ -374,9 +374,9 @@ public class Elevator
     public void addStopsFromHeight(int height)
     {
         if (height != -1) {
-            if (!this.stops.contains(Integer.valueOf(height)))
+            if (!this.stops.contains(height))
             {
-                this.stops.add(Integer.valueOf(height));
+                this.stops.add(height);
                 if (!this.isMoving)
                 {
                     this.isMoving = true;
@@ -429,7 +429,7 @@ public class Elevator
         {
             if (!this.platform.isStuck())
             {
-                if (this.stops.contains(Integer.valueOf(this.platform.getHeight())))
+                if (this.stops.contains(this.platform.getHeight()))
                 {
                     for (Floor f : this.floors) {
                         if (f.getHeight() == this.platform.getHeight()) {
@@ -587,7 +587,7 @@ public class Elevator
             if (this.Direction.equals("DOWN")) {
                 for (int i = 0; i < this.stops.size(); i++)
                 {
-                    int t = ((Integer)this.stops.get(i)).intValue();
+                    int t = (this.stops.get(i));
                     if ((next == -1) &&
                             (t < current)) {
                         next = t;
@@ -620,7 +620,7 @@ public class Elevator
     private void removeCurrentFloor()
     {
         for (int i = 0; i < this.stops.size(); i++) {
-            if (((Integer)this.stops.get(i)).intValue() == this.platform.getHeight()) {
+            if ((this.stops.get(i)) == this.platform.getHeight()) {
                 this.stops.remove(i);
             }
         }
@@ -629,9 +629,9 @@ public class Elevator
     private void updateDirection()
     {
         int height = this.platform.getHeight();
-        for (Iterator localIterator = this.stops.iterator(); localIterator.hasNext();)
+        for (Iterator<Integer> localIterator = this.stops.iterator(); localIterator.hasNext();)
         {
-            int i = ((Integer)localIterator.next()).intValue();
+            int i = localIterator.next();
             if (this.Direction.equals("DOWN")) {
                 if (i < height) {
                     return;

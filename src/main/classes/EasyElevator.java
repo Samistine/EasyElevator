@@ -34,6 +34,7 @@ public class EasyElevator
 
     public EasyElevator() {}
 
+    @Override
     public void onEnable()
     {
         PluginManager pm = getServer().getPluginManager();
@@ -49,6 +50,7 @@ public class EasyElevator
         this.BlockOutputDoor = this.config.getBlock("OutputDoor");
     }
 
+    @Override
     public void onDisable()
     {
         for (Elevator e : this.elevators) {
@@ -58,6 +60,7 @@ public class EasyElevator
         }
     }
 
+    @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel1, String[] args)
     {
         if ((commandLabel1.equals("elv")) || (commandLabel1.equals("eelevator"))) {
@@ -112,9 +115,7 @@ public class EasyElevator
                     }
                     if (args[0].equals("stop")) {
                         if ((pm.has("easyelevator.stop.cmd")) || (pm.has("easyelevator.stop.*"))) {
-                            for (int i = 0; i < this.elevators.size(); i++)
-                            {
-                                Elevator e = (Elevator)this.elevators.get(i);
+                            for (Elevator e : this.elevators) {
                                 if (e.isInElevator(player))
                                 {
                                     int target = e.getFloorNumberFromHeight(e.getNextFloorHeight_2());

@@ -1,7 +1,6 @@
 package main.classes;
 
 import java.io.File;
-import java.io.PrintStream;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class EEConfiguration
@@ -37,10 +36,10 @@ public class EEConfiguration
                 System.out.println("[EasyElevator] Creating Config...");
                 this.configFile.createNewFile();
                 this.config = loadConfig();
-                this.config.set("MaxPerimeter", Integer.valueOf(25));
-                this.config.set("MaxFloors", Integer.valueOf(10));
-                this.config.set("Arrival.Sound", Boolean.valueOf(true));
-                this.config.set("Arrival.Message", Boolean.valueOf(true));
+                this.config.set("MaxPerimeter", 25);
+                this.config.set("MaxFloors", 10);
+                this.config.set("Arrival.Sound", true);
+                this.config.set("Arrival.Message", true);
                 this.config.set("Blocks.Border", "41");
                 this.config.set("Blocks.Floor", "42");
                 this.config.set("Blocks.OutputDoor", "35:14");
@@ -107,12 +106,12 @@ public class EEConfiguration
             }
             if (!this.config.contains("Arrival.Sound"))
             {
-                this.config.set("Arrival.Sound", Boolean.valueOf(true));
+                this.config.set("Arrival.Sound", true);
                 System.out.println("[EasyElevator] Added Arrival.Sound Node to Configuration");
             }
             if (!this.config.contains("Arrival.Message"))
             {
-                this.config.set("Arrival.Message", Boolean.valueOf(true));
+                this.config.set("Arrival.Message", true);
                 System.out.println("[EasyElevator] Added Arrival.Message Node to Configuration");
             }
             if (!this.config.contains("Blocks.Border"))
