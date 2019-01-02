@@ -334,7 +334,18 @@ public class Floor
         for (Block block : this.doorOpenBlock)
         {
             Location loc = block.getLocation();
-            loc.getWorld().playSound(loc, Sound.NOTE_PLING, 1.0F, 0.0F);
+            loc.getWorld().playSound(loc, PLING, 1.0F, 0.0F);
+        }
+    }
+    
+    public static Sound PLING;
+    static {
+        try {
+            //Attempt Pre 1.9 sounds
+            PLING = Sound.valueOf("NOTE_PLING");
+        } catch (IllegalArgumentException ex) {
+            //Attempt Post 1.9 sound
+            PLING = Sound.valueOf("BLOCK_NOTE_PLING");
         }
     }
 }
