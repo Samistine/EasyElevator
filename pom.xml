@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>EasyElevator</groupId>
     <artifactId>EasyElevator</artifactId>
-    <version>8.2.6-SNAPSHOT</version>
+    <version>2.1-Samistine</version>
 
     <build>
         <sourceDirectory>src</sourceDirectory>
@@ -45,7 +45,7 @@
             <resource>
                 <targetPath>.</targetPath>
                 <filtering>true</filtering>
-                <directory>${project.basedir}</directory>
+                <directory>src/main/resources/</directory>
                 <includes>
                     <include>plugin.yml</include>
                     <include>config.yml</include>
@@ -70,7 +70,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.8-R0.1-SNAPSHOT</version>
+            <version>1.12-R0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
